@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Research, people, and publications from the Hybrid Supramolecular Crystal Lab (HSC Lab), Department of Chemistry, Sungkyunkwan University.">
+  <title>Hybrid Supramolecular Crystal Lab (HSC Lab)</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17211d;
+      --muted: #67736d;
+      --line: #e5eae6;
+      --soft: #f5f8f6;
+      --accent: #28634e;
+      --max: 1120px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-padding-top: 82px; }
+    body { margin: 0; color: var(--ink); background: #fff; font: 16px/1.65 Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: var(--accent); }
+    .wrap { width: min(var(--max), calc(100% - 48px)); margin-inline: auto; }
+    header { position: sticky; z-index: 10; top: 0; background: rgba(255,255,255,.94); border-bottom: 1px solid var(--line); backdrop-filter: blur(12px); }
+    .nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { font-size: 17px; font-weight: 720; letter-spacing: -.035em; overflow-wrap: anywhere; }
+    .links { display: flex; align-items: center; gap: 24px; font-size: 13px; color: #4b5851; }
+    .links a { padding-block: 24px; border-bottom: 2px solid transparent; }
+    .links a[aria-selected="true"] { color: var(--accent); border-color: var(--accent); }
+    .menu { display: none; border: 0; background: none; color: var(--ink); font: inherit; font-size: 14px; cursor: pointer; }
+    .hero { padding: 112px 0 96px; border-bottom: 1px solid var(--line); }
+    .eyebrow { color: var(--accent); text-transform: uppercase; letter-spacing: .14em; font-size: 11px; font-weight: 750; }
+    h1 { max-width: 800px; margin: 18px 0 20px; font-size: clamp(42px, 7vw, 76px); line-height: 1.04; letter-spacing: -.065em; font-weight: 650; }
+    .intro { max-width: 100%; color: var(--muted); font-size: 18px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+    .button { display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border: 1px solid var(--line); border-radius: 5px; font-size: 13px; font-weight: 650; }
+    .button.primary { color: #fff; background: var(--accent); border-color: var(--accent); }
+    section { min-height: calc(100vh - 130px); padding: 80px 0; border-bottom: 1px solid var(--line); }
+    [hidden] { display: none !important; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 32px; }
+    h2 { margin: 7px 0 0; font-size: clamp(30px, 4vw, 42px); line-height: 1.15; letter-spacing: -.045em; font-weight: 630; }
+    .research-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .research-card, .person, .publication, .news-card { border: 1px solid var(--line); border-radius: 7px; background: #fff; }
+    .research-card { display: flex; flex-direction: column; gap: 22px; padding: 23px; transition: border-color .2s, box-shadow .2s; }
+    .research-card:hover { border-color: var(--accent); box-shadow: 0 8px 24px rgba(23,33,29,.06); }
+    .research-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+    .research-card h3 { margin: 0; min-height: 104px; font-size: clamp(23px, 2.5vw, 29px); line-height: 1.2; font-weight: 650; letter-spacing: -.035em; }
+    .research-image-slot { display: grid; place-items: center; aspect-ratio: 1.6; min-width: 0; overflow: hidden; border-radius: 5px; background: #fff; }
+    .research-image-slot img { display: block; width: 100%; height: 100%; min-height: 0; object-fit: contain; }
+    .research-details { margin-top: 64px; }
+    .research-topic { padding: 44px 0; border-top: 1px solid var(--line); scroll-margin-top: 100px; }
+    .research-topic h3 { max-width: 840px; margin: 0 0 24px; font-size: clamp(27px, 3.5vw, 38px); line-height: 1.2; letter-spacing: -.035em; font-weight: 650; }
+    .research-topic p { max-width: 840px; margin: 0 0 18px; color: #46544d; font-size: 16px; line-height: 1.85; }
+    .research-topic p:last-child { margin-bottom: 0; }
+    .research-topic .research-question { color: var(--ink); font-size: 20px; font-weight: 550; }
+    .number { color: var(--accent); font-size: 12px; font-weight: 700; }
+    h3 { margin: 12px 0 7px; font-size: 17px; line-height: 1.35; letter-spacing: -.02em; }
+    .research-card p, .person p, .publication p, .news-card p { margin: 0; color: var(--muted); font-size: 13px; }
+    .team-group + .team-group { margin-top: 38px; }
+    .team-label { margin: 0 0 14px; color: var(--muted); font-size: 12px; font-weight: 720; letter-spacing: .1em; text-transform: uppercase; }
+    .people { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .person { padding: 18px; }
+    .avatar { width: 54px; height: 54px; display: grid; place-items: center; margin-bottom: 15px; border-radius: 50%; background: var(--soft); color: #7b8981; font-size: 11px; }
+    .pi-profile { display: grid; grid-template-columns: minmax(240px, 36%) 1fr; gap: 38px; align-items: stretch; max-width: 900px; padding: 26px; border: 1px solid var(--line); border-radius: 8px; }
+    .pi-photo { width: 100%; height: 100%; min-height: 360px; display: block; border-radius: 6px; background: var(--soft); color: #7b8981; object-fit: cover; object-position: center 22%; }
+    .pi-copy { align-self: center; }
+    .pi-copy h3 { margin: 8px 0; font-size: clamp(28px, 4vw, 40px); letter-spacing: -.04em; }
+    .pi-role { color: var(--accent); font-size: 15px; font-weight: 650; }
+    .pi-bio { max-width: 520px; margin: 16px 0 !important; font-size: 15px !important; }
+    .pi-details { color: var(--muted); font-size: 13px; }
+    .cv-grid { display: grid; grid-template-columns: 1fr 1.25fr; gap: 38px; margin-top: 48px; }
+    .cv-block h3 { margin: 0 0 18px; font-size: 21px; }
+    .timeline { margin: 0; padding: 0; list-style: none; }
+    .timeline li { position: relative; padding: 0 0 20px 18px; border-left: 1px solid var(--line); }
+    .timeline li:last-child { padding-bottom: 0; }
+    .timeline li::before { position: absolute; top: 8px; left: -4px; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); content: ""; }
+    .timeline .date { display: block; color: var(--accent); font-size: 12px; font-weight: 700; }
+    .timeline strong { display: block; margin-top: 3px; font-size: 14px; }
+    .timeline span:not(.date) { display: block; color: var(--muted); font-size: 13px; }
+    .person h3 { margin-top: 0; }
+    .publication-list { display: grid; gap: 14px; }
+    .publications-layout { display: grid; grid-template-columns: minmax(0, 1fr) 104px; gap: 36px; align-items: start; }
+    .publication-content { min-width: 0; }
+    .year-menu { position: sticky; top: 104px; border-left: 1px solid var(--line); padding-left: 18px; }
+    .year-menu-label { margin: 0 0 12px; color: var(--muted); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; }
+    .year-menu a { display: block; margin: 3px 0; padding: 5px 0; color: var(--muted); font-size: 14px; }
+    .year-menu a[aria-current="true"] { color: var(--accent); font-weight: 750; }
+    .publication-year-group { margin-top: 36px; scroll-margin-top: 100px; }
+    .publication-year-group:first-child { margin-top: 0; }
+    .publication-year-heading { margin: 0 0 18px; padding-bottom: 12px; border-bottom: 1px solid var(--line); color: var(--accent); font-size: 26px; }
+    #publication-manuscripts { scroll-margin-top: 100px; }
+    .publication { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 27%); gap: 20px; padding: 18px; align-items: center; overflow-wrap: anywhere; }
+    .pub-year { color: var(--accent); font-size: 12px; font-weight: 750; }
+    .pub-title { margin: 0 0 10px; font-size: 19px; font-weight: 670; line-height: 1.45; }
+    .pub-meta { color: var(--muted); font-size: 13px; }
+    .pub-figure { min-height: 130px; display: grid; place-items: center; padding: 16px; border: 1px dashed #ccd6cf; border-radius: 5px; background: var(--soft); color: #77847c; text-align: center; font-size: 12px; }
+    .pub-figure.has-image { width: 100%; max-width: 240px; min-height: 0; margin: 0; display: flex; flex-direction: column; justify-content: center; gap: 0; padding: 6px; border: 1px solid var(--line); background: white; justify-self: center; }
+    .pub-figure.has-image > a { width: 100%; display: block; }
+    .pub-figure img { width: 100%; height: auto; max-height: 135px; display: block; object-fit: contain; }
+    .pub-figure a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+    .pub-authors { margin: 8px 0 !important; color: #46544d !important; font-size: 13px !important; line-height: 1.6; }
+    .pub-reference { margin-top: 6px !important; color: #46544d !important; font-size: 13px !important; }
+    .pub-status { display: inline-block; margin-top: 7px; padding: 3px 8px; border-radius: 20px; background: var(--soft); color: var(--accent); font-size: 11px; font-weight: 700; }
+    .manuscript-note { margin-top: 6px !important; font-size: 12px !important; }
+    .news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .news-image { aspect-ratio: 1.55; display: grid; place-items: center; border-bottom: 1px solid var(--line); background: var(--soft); color: #77847c; font-size: 12px; }
+    .news-copy { padding: 17px; }
+    .news-date { color: var(--accent); font-size: 11px; font-weight: 700; }
+    .contact-box { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; padding: 28px; border-radius: 7px; background: var(--soft); }
+    .contact-box p { margin: 6px 0 0; color: var(--muted); font-size: 14px; }
+    footer { padding: 26px 0 38px; color: var(--muted); font-size: 12px; }
+    @media (max-width: 760px) {
+      .wrap { width: min(100% - 36px, var(--max)); }
+      .nav { min-height: 64px; flex-wrap: wrap; }
+      .menu { display: block; padding: 10px 0 10px 10px; }
+      .links { display: none; width: 100%; padding: 0 0 14px; flex-wrap: wrap; gap: 6px 18px; }
+      .links.open { display: flex; }
+      .links a { padding: 5px 0; }
+      .hero { min-height: calc(100vh - 64px); padding: 76px 0 68px; }
+      .intro { font-size: 16px; }
+      section { min-height: calc(100vh - 120px); padding: 60px 0; }
+      .section-head { display: block; }
+      .research-grid, .people, .news-grid { grid-template-columns: 1fr; }
+      .pi-profile { grid-template-columns: 1fr; gap: 22px; padding: 18px; }
+      .pi-photo { height: 390px; min-height: 300px; }
+      .research-card { min-height: 0; gap: 18px; }
+      .research-card h3 { min-height: 0; }
+      .research-details { margin-top: 42px; }
+      .research-topic { padding: 34px 0; }
+      .publication { gap: 10px; padding: 12px; }
+      .pub-figure.has-image { padding: 10px; }
+      .publications-layout { display: flex; flex-direction: column; gap: 24px; }
+      .publication-content { width: 100%; }
+      .year-menu { order: -1; position: static; width: 100%; border-left: 0; border-bottom: 1px solid var(--line); padding: 0 0 12px; }
+      .year-menu-links { display: flex; flex-wrap: wrap; gap: 4px 18px; }
+      .year-menu a { margin: 0; padding: 6px 0; }
+      .pub-figure { min-height: 170px; }
+      .contact-box { grid-template-columns: 1fr; gap: 20px; padding: 22px; }
+      .cv-grid { grid-template-columns: 1fr; gap: 30px; margin-top: 34px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    .research-card-entry { display: flex; flex-direction: column; min-width: 0; }
+    .research-card-entry .research-card { flex: 1; padding: 0; overflow: hidden; gap: 0; }
+    .research-card-entry h3 { padding: 14px 16px 6px; min-height: 0; }
+    .research-card-entry .research-image-slot { aspect-ratio: 1; border-radius: 0; }
+    .research-topic { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); gap: 36px; align-items: start; }
+    .research-topic-figure { margin: 0; }
+    .research-topic-figure img { display: block; width: 100%; height: auto; }
+    .research-reference { margin: 8px 0 0; color: var(--muted); font-size: 12px; line-height: 1.5; }
+    .research-reference a { text-decoration: underline; text-underline-offset: 2px; }
+    @media (max-width: 760px) {
+      .research-topic { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+      .research-topic-figure { max-width: 460px; }
+    }
+    .team-tabs { display: flex; flex-wrap: wrap; gap: 8px 22px; border-bottom: 1px solid var(--line); margin-bottom: 28px; }
+    .team-tabs button { font: inherit; font-weight: 650; color: var(--muted); background: transparent; border: 0; border-bottom: 2px solid transparent; padding: 10px 4px; cursor: pointer; }
+    .team-tabs button[aria-selected="true"] { color: var(--accent); border-color: var(--accent); }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav wrap" aria-label="Main navigation">
+      <a class="brand" href="#home">Hybrid Supramolecular Crystal Lab (HSC Lab)</a>
+      <button class="menu" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <div class="links" id="nav-links" role="tablist" aria-label="Site pages">
+        <a id="tab-home" href="#home" role="tab" aria-controls="panel-home" aria-selected="true">Home</a><a id="tab-research" href="#research" role="tab" aria-controls="panel-research" aria-selected="false" tabindex="-1">Research</a><a id="tab-team" href="#team" role="tab" aria-controls="panel-team" aria-selected="false" tabindex="-1">Team</a><a id="tab-publications" href="#publications" role="tab" aria-controls="panel-publications" aria-selected="false" tabindex="-1">Publications</a><a id="tab-news" href="#news" role="tab" aria-controls="panel-news" aria-selected="false" tabindex="-1">News</a><a id="tab-contact" href="#contact" role="tab" aria-controls="panel-contact" aria-selected="false" tabindex="-1">Contact</a>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="hero" id="panel-home" role="tabpanel" aria-labelledby="tab-home" tabindex="0">
+      <div class="wrap">
+        <div class="eyebrow">Department of Chemistry · Sungkyunkwan University</div>
+        <h1>Create new materials.<br>Shape the future.</h1>
+        <p class="intro">We explore uncharted classes of materials to shape a future where all can thrive.</p>
+        <div class="hero-actions"><a class="button primary" href="#research">Explore our research</a><a class="button" href="#team">Meet the team</a></div>
+      </div>
+    </div>
+    <section id="panel-research" role="tabpanel" aria-labelledby="tab-research" tabindex="0" hidden><div class="wrap">
+      <div class="section-head"><div><h2>Research</h2></div></div>
+      <div class="research-grid">
+        <div class="research-card-entry"><a class="research-card" href="#research-ionic-solids"><h3>Supramolecular Ionic Solids</h3><div class="research-image-slot"><img src="assets/research/SIS.png" alt="Crystal structure showing molecular coordination and hydrogen bonding" decoding="async"></div></a><p class="research-reference"><a href="https://doi.org/10.1126/science.adk8912" target="_blank" rel="noopener noreferrer">H. S. Choi et al. <em>Science</em> <strong>384</strong>, 60–66 (2024). ↗</a></p></div>
+        <div class="research-card-entry"><a class="research-card" href="#research-ferroelectricity"><h3>Ferroelectricity</h3><div class="research-image-slot"><img src="assets/research/Ferroelectric.png" alt="Polarization versus electric field hysteresis loops" decoding="async"></div></a><p class="research-reference"><a href="https://doi.org/10.1038/s41467-022-28314-8" target="_blank" rel="noopener noreferrer">H. S. Choi et al. <em>Nature Communications</em> <strong>13</strong>, 794 (2022). ↗</a></p></div>
+        <div class="research-card-entry"><a class="research-card" href="#research-applications"><h3>Applications in Electronics and Energy</h3><div class="research-image-slot"><img src="assets/research/Device.jpg" alt="Perovskite transistor micrograph showing source, gate, and drain" decoding="async"></div></a><p class="research-reference"><a href="https://doi.org/10.1126/science.adk8912" target="_blank" rel="noopener noreferrer">H. S. Choi et al. <em>Science</em> <strong>384</strong>, 60–66 (2024). ↗</a></p></div>
+      </div>
+      <div class="research-details">
+        <article class="research-topic" id="research-ionic-solids" aria-labelledby="research-ionic-solids-title">
+          <div>
+          <h3 id="research-ionic-solids-title">Supramolecular Ionic Solids</h3>
+          <p class="research-question">How can we design ionic crystals from molecular building blocks?</p>
+          <p>In inorganic ionic solids, coordination geometries such as tetrahedra and octahedra are often understood in terms of relative ionic sizes, as reflected in Pauling’s rules. For perovskites, the Goldschmidt tolerance factor provides a geometric guideline for structural stability. These approaches generally treat ions as spheres, but organic ions introduce additional complexity: they have diverse shapes and can participate in directional hydrogen bonding or exhibit chirality.</p>
+          <p>Our laboratory aims to uncover the design principles governing how non-spherical organic ions assemble through ionic interactions and hydrogen bonding. By connecting molecular shape and intermolecular interactions with crystal structure, we seek to create new families of supramolecular ionic solids with distinctive functional properties.</p>
+          </div>
+          <figure class="research-topic-figure"><img src="assets/research/SIS.png" alt="Crystal structure showing molecular coordination and hydrogen bonding" decoding="async"><figcaption class="research-reference"><a href="https://doi.org/10.1126/science.adk8912" target="_blank" rel="noopener noreferrer">H. S. Choi et al. <em>Science</em> <strong>384</strong>, 60–66 (2024). ↗</a></figcaption></figure>
+        </article>
+        <article class="research-topic" id="research-ferroelectricity" aria-labelledby="research-ferroelectricity-title">
+          <div>
+          <h3 id="research-ferroelectricity-title">Ferroelectricity</h3>
+          <p>Ferroelectric materials possess a spontaneous electric polarization that can be reversed by an applied electric field. This switchable polarization enables applications in non-volatile memory and neuromorphic computing, while related properties support pyroelectric energy harvesting, electrocaloric cooling, and nonlinear optics.</p>
+          <p>Ferroelectricity requires a polar crystal structure without inversion symmetry. Yet predicting and deliberately constructing such structures remains challenging. Our laboratory seeks to establish rational design strategies for geometric ferroelectricity by controlling the arrangement and collective distortions of molecular building blocks.</p>
+          <p>We explore how molecular chirality, hydrogen bonding, and chemical composition influence polar order and polarization switching. Through this approach, we aim to tune ferroelectric properties and discover new polarization-related phenomena in previously unexplored crystal structures.</p>
+          </div>
+          <figure class="research-topic-figure"><img src="assets/research/Ferroelectric.png" alt="Polarization versus electric field hysteresis loops" decoding="async"><figcaption class="research-reference"><a href="https://doi.org/10.1038/s41467-022-28314-8" target="_blank" rel="noopener noreferrer">H. S. Choi et al. <em>Nature Communications</em> <strong>13</strong>, 794 (2022). ↗</a></figcaption></figure>
+        </article>
+        <article class="research-topic" id="research-applications" aria-labelledby="research-applications-title">
+          <div>
+          <h3 id="research-applications-title">Applications in Electronics and Energy</h3>
+          <p>Solution-processable organic dielectric and ferroelectric materials offer opportunities for electronics and energy technologies. Their molecular tunability and compatibility with solution-based fabrication provide a versatile platform for developing functional devices.</p>
+          <p>We have fabricated field-effect transistors (FETs) and ferroelectric FETs using two-dimensional all-organic perovskites, exploring their potential for electronic and neuromorphic applications. Building on this work, we aim to extend these materials toward wafer-scale integration and scalable, solution-processed electronics.</p>
+          <p>We also seek to translate their polarization and thermal responses into energy applications, particularly pyroelectric energy harvesting and electrocaloric cooling. By connecting materials design with device engineering, our goal is to develop organic materials that combine useful functionality with scalable fabrication.</p>
+          </div>
+          <figure class="research-topic-figure"><img src="assets/research/Device.jpg" alt="Perovskite transistor micrograph showing source, gate, and drain" decoding="async"><figcaption class="research-reference"><a href="https://doi.org/10.1126/science.adk8912" target="_blank" rel="noopener noreferrer">H. S. Choi et al. <em>Science</em> <strong>384</strong>, 60–66 (2024). ↗</a></figcaption></figure>
+        </article>
+      </div>
+    </div></section>
+    <section id="panel-team" role="tabpanel" aria-labelledby="tab-team" tabindex="0" hidden><div class="wrap">
+      <div class="section-head"><div><h2>Team</h2></div></div>
+      <div class="team-tabs" role="tablist" aria-label="Team categories"><button type="button" id="team-tab-pi" role="tab" aria-controls="team-panel-pi" aria-selected="true" tabindex="0">P.I.</button><button type="button" id="team-tab-researcher" role="tab" aria-controls="team-panel-researcher" aria-selected="false" tabindex="-1">Researcher</button><button type="button" id="team-tab-alumni" role="tab" aria-controls="team-panel-alumni" aria-selected="false" tabindex="-1">Alumni</button></div>
+      <div id="team-panel-pi" role="tabpanel" aria-labelledby="team-tab-pi" tabindex="0">
+      <div class="team-group">
+        <article class="pi-profile"><img class="pi-photo" src="assets/hwa-seob-choi.jpg" alt="Portrait of Hwa Seob Choi"><div class="pi-copy"><div class="eyebrow">Principal Investigator</div><h3>Hwa Seob Choi</h3><div class="pi-role">Incoming Assistant Professor · Department of Chemistry</div><p class="pi-bio">Sungkyunkwan University</p><div class="pi-details"><div>Email: <a href="mailto:hwaseobchoi@gmail.com">hwaseobchoi@gmail.com</a></div><div>Address:</div><div>Tel.:</div><div>ORCID: <a href="https://orcid.org/0000-0003-2964-761X" target="_blank" rel="noopener noreferrer">0000-0003-2964-761X ↗</a></div><a href="https://scholar.google.com/citations?user=8jsTc_8AAAAJ&amp;hl=en">Google Scholar ↗</a></div></div></article>
+      </div>
+      <div class="cv-grid">
+        <div class="cv-block"><h3>Education</h3><ol class="timeline">
+          <li><span class="date">2012.02–2017.08</span><strong>Ph.D. in Energy, Environment, Water and Sustainability</strong><span>Korea Advanced Institute of Science and Technology (KAIST)</span><span>Advisor: Prof. Jeung Ku Kang</span></li>
+          <li><span class="date">2010.02–2012.02</span><strong>M.S. in Energy, Environment, Water and Sustainability</strong><span>Korea Advanced Institute of Science and Technology (KAIST)</span><span>Advisor: Prof. Jeung Ku Kang</span></li>
+          <li><span class="date">2007.03–2010.02</span><strong>B.S. in Advanced Materials Science and Engineering</strong><span>Sungkyunkwan University (SKKU) · Summa Cum Laude</span><span>One-year early graduation</span></li>
+        </ol></div>
+        <div class="cv-block"><h3>Career</h3><ol class="timeline">
+          <li><span class="date">From 2027.03</span><strong>Assistant Professor</strong><span>Department of Chemistry, Sungkyunkwan University</span></li>
+          <li><span class="date">2025.10–present</span><strong>Postdoctoral Researcher</strong><span>Research Institute of Applied Science, KAIST · PI: Prof. Himchan Cho</span></li>
+          <li><span class="date">2022.11–2025.10</span><strong>Research Fellow</strong><span>Department of Applied Physics, The Hong Kong Polytechnic University · PI: Prof. Kian Ping Loh</span></li>
+          <li><span class="date">2021.01–2022.10</span><strong>Research Fellow</strong><span>Department of Chemistry, National University of Singapore · PI: Prof. Kian Ping Loh</span></li>
+          <li><span class="date">2018.09–2021.01</span><strong>Visiting Researcher</strong><span>Department of Chemistry, National University of Singapore · PI: Prof. Kian Ping Loh</span></li>
+          <li><span class="date">2018.07–2021.01</span><strong>Postdoctoral Researcher</strong><span>SZU–NUS Collaborative Innovation Center for Optoelectronic Science &amp; Technology, Shenzhen University · PI: Prof. Kian Ping Loh</span></li>
+          <li><span class="date">2017.09–2018.02</span><strong>Postdoctoral Researcher</strong><span>Research Institute of Applied Science, KAIST · PI: Prof. Jeung Ku Kang</span></li>
+        </ol></div>
+      </div>
+      </div>
+      <div id="team-panel-researcher" role="tabpanel" aria-labelledby="team-tab-researcher" tabindex="0" hidden><div class="team-group"><h3 class="team-label">Researcher</h3><div class="people">
+        <article class="person"><div class="avatar" aria-hidden="true">Photo</div><h3>Researcher Name</h3><p>Role · Research interests</p></article>
+        <article class="person"><div class="avatar" aria-hidden="true">Photo</div><h3>Researcher Name</h3><p>Role · Research interests</p></article>
+        <article class="person"><div class="avatar" aria-hidden="true">Photo</div><h3>Researcher Name</h3><p>Role · Research interests</p></article>
+      </div></div>
+      </div>
+      <div id="team-panel-alumni" role="tabpanel" aria-labelledby="team-tab-alumni" tabindex="0" hidden><div class="team-group"><h3 class="team-label">Alumni</h3></div></div>
+    </div></section>
+    <section id="panel-publications" role="tabpanel" aria-labelledby="tab-publications" tabindex="0" hidden><div class="wrap">
+      <div class="section-head"><div><h2>Publications</h2></div></div>
+      <div class="publications-layout">
+        <div class="publication-content">
+          <div class="team-group"><div id="published-papers"></div></div>
+        </div>
+        <nav class="year-menu" aria-label="Publication years"><p class="year-menu-label">Years</p><div class="year-menu-links" id="publication-years"></div></nav>
+      </div>
+    </div></section>
+    <section id="panel-news" role="tabpanel" aria-labelledby="tab-news" tabindex="0" hidden><div class="wrap">
+      <div class="section-head"><div><h2>News &amp; Gallery</h2></div></div>
+      <div class="news-grid">
+        <article class="news-card"><div class="news-image">Add a lab photo</div><div class="news-copy"><div class="news-date">Month DD, YYYY</div><h3>News headline</h3><p>A sentence about the event or achievement.</p></div></article>
+        <article class="news-card"><div class="news-image">Add a lab photo</div><div class="news-copy"><div class="news-date">Month DD, YYYY</div><h3>News headline</h3><p>A sentence about the event or achievement.</p></div></article>
+        <article class="news-card"><div class="news-image">Add a lab photo</div><div class="news-copy"><div class="news-date">Month DD, YYYY</div><h3>News headline</h3><p>A sentence about the event or achievement.</p></div></article>
+      </div>
+    </div></section>
+    <section id="panel-contact" role="tabpanel" aria-labelledby="tab-contact" tabindex="0" hidden><div class="wrap">
+      <div class="section-head"><div><h2>Contact</h2></div></div>
+      <div class="contact-box"><div><strong>Department of Chemistry</strong><p>Sungkyunkwan University<br>Appointment begins March 1, 2027<br>Campus address to be added</p></div><div><strong>Contact</strong><p>University email and office details to be added.</p><p><a href="https://scholar.google.com/citations?user=8jsTc_8AAAAJ&amp;hl=en">Google Scholar ↗</a></p></div></div>
+    </div></section>
+  </main>
+  <footer><div class="wrap">© <span id="year"></span> Hybrid Supramolecular Crystal Lab (HSC Lab) · Sungkyunkwan University</div></footer>
+  <script>
+    const menu = document.querySelector('.menu');
+    const links = document.querySelector('.links');
+    const papers = [
+      {
+        group: 'published', year: '2026', title: 'Two-dimensional mixed tetrahedral–octahedral hybrid perovskites with coexisting ferroelectricity and intralayer antiferromagnetism',
+        authors: ['Ming Wang', 'Shurong Yuan', 'Dequan Jiang', 'Walter P. D. Wong', 'Hwa Seob Choi', 'Hengxing Yang', 'Chuanqi Zhang', 'Xiaotao Zhang', 'Yonggang Wang', 'Wenping Hu', 'Kian Ping Loh'],
+        journal: 'Nature Synthesis', volume: '5', pages: '445–454', doi: '10.1038/s44160-025-00942-0', impactFactor: '20'
+      },
+      {
+        group: 'published', year: '2025', title: 'Moiré two-dimensional covalent organic framework superlattices',
+        authors: ['Gaolei Zhan', 'Brecht Koek', 'Yijia Yuan', 'Yikuan Liu', 'Vipin Mishra', 'Veniero Lenzi', 'Karol Strutyński', 'Chunxiao Li', 'Rongrong Zhang', 'Xin Zhou', 'Hwa Seob Choi', 'Zhen-Feng Cai', 'Joaquín Almarza', 'Kunal S. Mali', 'Aurelio Mateo-Alonso', 'Manuel Melle Franco', 'Yihan Zhu', 'Steven De Feyter', 'Kian Ping Loh'],
+        journal: 'Nature Chemistry', volume: '17', pages: '518–524', doi: '10.1038/s41557-025-01748-5', impactFactor: '20.2'
+      },
+      {
+        group: 'published', year: '2024', title: 'Molecularly thin, two-dimensional all-organic perovskites',
+        authors: ['Hwa Seob Choi', 'Jun Lin', 'Gang Wang', 'Walter P. D. Wong', 'In-Hyeok Park', 'Fang Lin', 'Jun Yin', 'Kai Leng', 'Junhao Lin', 'Kian Ping Loh'],
+        journal: 'Science', volume: '384', pages: '60–66', doi: '10.1126/science.adk8912', impactFactor: '45.8'
+      },
+      {
+        group: 'published', year: '2022', title: 'Tailoring the coercive field in ferroelectric metal-free perovskites by hydrogen bonding',
+        authors: ['Hwa Seob Choi', 'Shunning Li', 'In-Hyeok Park', 'Weng Heng Liew', 'Ziyu Zhu', 'Ki Chang Kwon', 'Lin Wang', 'In-Hwan Oh', 'Shisheng Zheng', 'Chenliang Su', 'Qing-Hua Xu', 'Kui Yao', 'Feng Pan', 'Kian Ping Loh'],
+        journal: 'Nature Communications', volume: '13', pages: '794', doi: '10.1038/s41467-022-28314-8', impactFactor: '14.7'
+      },
+      {
+        group: 'published', year: '2020', title: 'In-plane ferroelectric tin monosulfide and its application in a ferroelectric analog synaptic device',
+        authors: ['Ki Chang Kwon', 'Yishu Zhang', 'Lin Wang', 'Wei Yu', 'Xiaojie Wang', 'In-Hyeok Park', 'Hwa Seob Choi', 'Teng Ma', 'Ziyu Zhu', 'Bingbing Tian', 'Chenliang Su', 'Kian Ping Loh'],
+        journal: 'ACS Nano', volume: '14', pages: '7628–7638', doi: '10.1021/acsnano.0c03869', impactFactor: '16'
+      },
+      {
+        group: 'published', year: '2020', title: 'Rapid, scalable construction of highly crystalline acylhydrazone two-dimensional covalent organic frameworks via dipole-induced antiparallel stacking',
+        authors: ['Xing Li', 'Jingsi Qiao', 'See Wee Chee', 'Hai-Sen Xu', 'Xiaoxu Zhao', 'Hwa Seob Choi', 'Wei Yu', 'Su Ying Quek', 'Utkur Mirsaidov', 'Kian Ping Loh'],
+        journal: 'Journal of the American Chemical Society', volume: '142', pages: '4932–4943', doi: '10.1021/jacs.0c00553', impactFactor: '15.6'
+      },
+      {
+        group: 'published', year: '2019', title: 'Ferroelectricity and Rashba effect in a two-dimensional Dion–Jacobson hybrid organic–inorganic perovskite',
+        authors: ['In-Hyeok Park', 'Qiannan Zhang', 'Ki Chang Kwon', 'Ziyu Zhu', 'Wei Yu', 'Kai Leng', 'David Giovanni', 'Hwa Seob Choi', 'Ibrahim Abdelwahab', 'Qing-Hua Xu', 'Tze Chien Sum', 'Kian Ping Loh'],
+        journal: 'Journal of the American Chemical Society', volume: '141', pages: '15972–15976', doi: '10.1021/jacs.9b07776', impactFactor: '15.6'
+      },
+      {
+        group: 'published', year: '2017', title: 'Quadruple metal-based layered structure as the photocatalyst for conversion of carbon dioxide into a value-added carbon monoxide with high selectivity and efficiency',
+        authors: ['Keon-Han Kim', 'Sangjun Kim', 'Byeong Cheul Moon', 'Jae Won Choi', 'Hyung Mo Jeong', 'Youngkook Kwon', 'Sunil Kwon', 'Hwa Seob Choi', 'Jeung Ku Kang'],
+        journal: 'Journal of Materials Chemistry A', volume: '5', pages: '8274–8279', doi: '10.1039/C7TA01623A', impactFactor: '9.5'
+      },
+      {
+        group: 'published', year: '2015', title: 'Tailoring open metal sites for selective capture of CO₂ in isostructural metalloporphyrin porous organic networks',
+        authors: ['Hwa Seob Choi', 'Hyung Joon Jeon', 'Jung Hoon Choi', 'Gyu-Heon Lee', 'Jeung Ku Kang'],
+        journal: 'Nanoscale', volume: '7', pages: '18923–18927', doi: '10.1039/C5NR05696A', impactFactor: '5.1'
+      },
+      {
+        group: 'published', year: '2013', title: 'Two-step synthesis of agglomeration-free peroxidase-like Co₃O₄ nanoparticles–carbon nitride nanotube hybrids enabling a high redox activity',
+        authors: ['Cheol Ock Song', 'Jung Woo Lee', 'Hwa Seob Choi', 'Jeung Ku Kang'],
+        journal: 'RSC Advances', volume: '3', pages: '20179–20185', doi: '10.1039/C3RA42117A', impactFactor: '4.6'
+      },
+      {
+        group: 'published', year: '2010', title: 'Fabrication of size-controlled Co nanoparticles via mediation of H-adatoms on pyridine-like nitrogen of carbon nitride nanotubes and their superior catalytic performance for hydrogen generation',
+        authors: ['Cheol Ock Song', 'Weon Ho Shin', 'Hwa Seob Choi', 'Jeung Ku Kang'],
+        journal: 'Journal of Materials Chemistry', volume: '20', pages: '7276–7281', doi: '10.1039/C0JM00794C', impactFactor: '6.626'
+      }
+    ];
+    const formatAuthors = (authors) => {
+      const formatted = authors.map((name) => name === 'Hwa Seob Choi' ? `<strong>${name}</strong>` : name);
+      if (formatted.length < 2) return formatted[0];
+      return `${formatted.slice(0, -1).join(', ')} &amp; ${formatted[formatted.length - 1]}`;
+    };
+    const paperFigures = {
+      '10.1021/jacs.0c00553': { file: 'Rapid-scalable-construction_JACS_2020.png', label: 'Graphical abstract', source: 'https://doi.org/10.1021/jacs.0c00553' },
+      '10.1039/C0JM00794C': { file: 'Fabrication-of-size-controlled_JMC_2010.png', label: 'Graphical abstract', source: 'https://doi.org/10.1039/C0JM00794C' },
+      '10.1039/C3RA42117A': { file: 'Two-step-synthesis-of_RSCAdv_2013.png', label: 'Graphical abstract', source: 'https://doi.org/10.1039/C3RA42117A' },
+      '10.1039/C5NR05696A': { file: 'Tailoring-open-metal_Nanoscale_2015.png', label: 'Graphical abstract', source: 'https://doi.org/10.1039/C5NR05696A' },
+      '10.1021/acsnano.0c03869': { file: 'In-plane-ferroelectric-tin_ACSNano_2020.png', label: 'Graphical abstract', source: 'https://doi.org/10.1021/acsnano.0c03869' },
+      '10.1039/C7TA01623A': { file: 'Quadruple-metal-based-layered_JMCA_2017.png', label: 'Graphical abstract', source: 'https://doi.org/10.1039/C7TA01623A' },
+      '10.1038/s44160-025-00942-0': { file: 'Two-dimensional-mixed-tetrahedral-octahedral_NatSynth_2026.png', label: 'Graphical abstract · Nature Synthesis', source: 'https://www.nature.com/articles/s44160-025-00942-0' },
+      '10.1038/s41557-025-01748-5': { file: 'Moire-two-dimensional-covalent_NatChem_2025.png', label: 'Graphical abstract · Nature Chemistry', source: 'https://www.nature.com/articles/s41557-025-01748-5' },
+      '10.1126/science.adk8912': { file: 'Molecularly-thin-two-dimensional_Science_2024.jpg', label: 'Graphical abstract', source: 'https://doi.org/10.1126/science.adk8912' },
+      '10.1038/s41467-022-28314-8': { file: 'Tailoring-the-coercive_NatComm_2022.png', label: 'Graphical abstract', source: 'https://doi.org/10.1038/s41467-022-28314-8' },
+      '10.1021/jacs.9b07776': { file: 'Ferroelectricity-and-Rashba_JACS_2019.png', label: 'Graphical abstract · Journal of the American Chemical Society', source: 'https://carbonlab.science.nus.edu.sg/pdf%20paper/362-Ferroelectricity%20and%20Rashba%20Effect.pdf' }
+    };
+    const renderPaper = (paper) => {
+      const reference = paper.journal
+        ? `<p class="pub-reference"><em>${paper.journal}</em> <strong>${paper.volume}</strong>, ${paper.pages} (${paper.year}). <a href="https://doi.org/${paper.doi}" target="_blank" rel="noopener noreferrer">doi:${paper.doi} ↗</a> (SCI, I.F. = ${paper.impactFactor})</p>`
+        : `<span class="pub-status">${paper.status}</span>${paper.note ? `<p class="manuscript-note">${paper.note}</p>` : ''}`;
+      const figure = paperFigures[paper.doi];
+      const figureMarkup = figure
+        ? `<figure class="pub-figure has-image"><a href="https://doi.org/${paper.doi}" target="_blank" rel="noopener noreferrer" aria-label="Open paper in a new tab: ${paper.title}"><img src="assets/publications/${figure.file}" alt="Representative figure: ${paper.title}" loading="lazy" decoding="async"></a></figure>`
+        : `<div class="pub-figure">${paper.group === 'published' ? 'Figure pending' : 'Manuscript figure forthcoming'}</div>`;
+      return `<article class="publication"><div><h4 class="pub-title">${paper.title}</h4><p class="pub-authors">${formatAuthors(paper.authors)}.</p>${reference}</div>${figureMarkup}</article>`;
+    };
+    const publishedPapers = papers.filter((paper) => paper.group === 'published');
+    const publicationYears = [...new Set(publishedPapers.map((paper) => paper.year))].sort((a, b) => Number(b) - Number(a));
+    document.querySelector('#published-papers').innerHTML = publicationYears.map((year) => `<div class="publication-year-group" id="publications-${year}" data-publication-group><h3 class="publication-year-heading">${year}</h3><div class="publication-list">${publishedPapers.filter((paper) => paper.year === year).map(renderPaper).join('')}</div></div>`).join('');
+    const yearMenu = document.querySelector('#publication-years');
+    yearMenu.innerHTML = publicationYears.map((year, index) => `<a href="#publications-${year}" aria-current="${index === 0}">${year}</a>`).join('');
+    const yearLinks = [...yearMenu.querySelectorAll('a')];
+    const markYear = (id) => yearLinks.forEach((link) => link.setAttribute('aria-current', String(link.hash === `#${id}`)));
+    yearMenu.addEventListener('click', (event) => {
+      const link = event.target.closest('a');
+      if (!link) return;
+      event.preventDefault();
+      const target = document.getElementById(link.hash.slice(1));
+      target.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+      markYear(target.id);
+    });
+    const yearObserver = new IntersectionObserver((entries) => {
+      const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+      if (visible.length) markYear(visible[0].target.id);
+    }, { rootMargin: '-90px 0px -55% 0px', threshold: 0 });
+    document.querySelectorAll('[data-publication-group]').forEach((group) => yearObserver.observe(group));
+    const tabs = [...links.querySelectorAll('[role="tab"]')];
+    const teamTabs = [...document.querySelectorAll('.team-tabs [role="tab"]')];
+    const selectTeamTab = (tab) => {
+      teamTabs.forEach((item) => {
+        const selected = item === tab;
+        item.setAttribute('aria-selected', String(selected));
+        item.tabIndex = selected ? 0 : -1;
+        document.getElementById(item.getAttribute('aria-controls')).hidden = !selected;
+      });
+    };
+    teamTabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => selectTeamTab(tab));
+      tab.addEventListener('keydown', (event) => {
+        const steps = {ArrowLeft: -1, ArrowRight: 1};
+        const next = event.key === 'Home' ? 0 : event.key === 'End' ? teamTabs.length - 1
+          : event.key in steps ? (index + steps[event.key] + teamTabs.length) % teamTabs.length : -1;
+        if (next < 0) return;
+        event.preventDefault();
+        selectTeamTab(teamTabs[next]);
+        teamTabs[next].focus();
+      });
+    });
+    const activateTab = (tab, updateHistory = true) => {
+      const page = tab.hash.slice(1);
+      tabs.forEach((item) => {
+        const selected = item === tab;
+        item.setAttribute('aria-selected', String(selected));
+        item.tabIndex = selected ? 0 : -1;
+        document.getElementById(item.getAttribute('aria-controls')).hidden = !selected;
+      });
+      if (updateHistory) history.pushState(null, '', `#${page}`);
+      window.scrollTo(0, 0);
+      menu.setAttribute('aria-expanded', 'false');
+      links.classList.remove('open');
+    };
+    tabs.forEach((tab) => tab.addEventListener('click', (event) => {
+      event.preventDefault();
+      activateTab(tab);
+    }));
+    document.querySelectorAll('.hero-actions a[href^="#"]').forEach((link) => link.addEventListener('click', (event) => {
+      const tab = tabs.find((item) => item.hash === link.hash);
+      if (!tab) return;
+      event.preventDefault();
+      activateTab(tab);
+    }));
+    links.addEventListener('keydown', (event) => {
+      if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+      event.preventDefault();
+      const index = tabs.indexOf(document.activeElement);
+      const next = event.key === 'Home' ? 0 : event.key === 'End' ? tabs.length - 1 : (index + (event.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length;
+      tabs[next].focus();
+      activateTab(tabs[next]);
+    });
+    const syncTabFromHash = () => {
+      const researchTarget = document.getElementById(location.hash.slice(1));
+      const isResearchTopic = researchTarget?.classList.contains('research-topic');
+      const tab = tabs.find((item) => item.hash === (isResearchTopic ? '#research' : location.hash === '#people' ? '#team' : location.hash)) || tabs[0];
+      activateTab(tab, false);
+      if (isResearchTopic) requestAnimationFrame(() => researchTarget.scrollIntoView({ block: 'start' }));
+    };
+    document.querySelectorAll('.research-card').forEach((card) => card.addEventListener('click', (event) => {
+      event.preventDefault();
+      const target = document.getElementById(card.hash.slice(1));
+      history.pushState(null, '', card.hash);
+      target.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+    }));
+    window.addEventListener('popstate', syncTabFromHash);
+    if (location.hash) syncTabFromHash();
+    menu.addEventListener('click', () => {
+      const open = menu.getAttribute('aria-expanded') === 'true';
+      menu.setAttribute('aria-expanded', String(!open));
+      links.classList.toggle('open', !open);
+    });
+    document.querySelector('#year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+{
+  "nature-synthesis-2026": {
+    "file": "assets/publications/Two-dimensional-mixed-tetrahedral-octahedral_NatSynth_2026.png",
+    "source": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs44160-025-00942-0/MediaObjects/44160_2025_942_Figa_HTML.png",
+    "bytes": 352044
+  },
+  "nature-chemistry-2025": {
+    "file": "assets/publications/Moire-two-dimensional-covalent_NatChem_2025.png",
+    "source": "https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41557-025-01748-5/MediaObjects/41557_2025_1748_Figa_HTML.png",
+    "bytes": 858620
+  },
+  "jmca-2017": {
+    "error": "HTTP Error 403: Forbidden"
+  },
+  "nanoscale-2015": {
+    "error": "HTTP Error 403: Forbidden"
+  },
+  "rsc-2013": {
+    "error": "HTTP Error 403: Forbidden"
+  },
+  "jmc-2010": {
+    "error": "HTTP Error 403: Forbidden"
+  },
+  "jacs-2019": {
+    "file": "assets/publications/Ferroelectricity-and-Rashba_JACS_2019.png",
+    "source": "https://carbonlab.science.nus.edu.sg/pdf%20paper/362-Ferroelectricity%20and%20Rashba%20Effect.pdf",
+    "figure": "Graphical abstract, original embedded PDF image"
+  },
+  "10.1126/science.adk8912": {
+    "file": "assets/publications/Molecularly-thin-two-dimensional_Science_2024.jpg",
+    "source": "D:\\Research\\Manuscript\\2D organic perovskite\\Drawings\\Science Toc.jpg",
+    "provided_by": "Hwa Seob Choi",
+    "paper": "https://doi.org/10.1126/science.adk8912"
+  },
+  "10.1039/C7TA01623A": {
+    "file": "assets/publications/Quadruple-metal-based-layered_JMCA_2017.png",
+    "source": "C:\\Users\\caspe\\Downloads\\Quadruple metal-based layered structure.png",
+    "provided_by": "Hwa Seob Choi",
+    "paper": "https://doi.org/10.1039/C7TA01623A"
+  },
+  "10.1021/acsnano.0c03869": {
+    "file": "assets/publications/In-plane-ferroelectric-tin_ACSNano_2020.png",
+    "source": "C:\\Users\\caspe\\Downloads\\In-Plane Ferroelectric Tin Monosulfide.png",
+    "provided_by": "Hwa Seob Choi",
+    "paper": "https://doi.org/10.1021/acsnano.0c03869"
+  },
+  "10.1039/C5NR05696A": {
+    "file": "assets/publications/Tailoring-open-metal_Nanoscale_2015.png",
+    "source": "C:\\Users\\caspe\\Downloads\\Tailoring open metal sites.png",
+    "provided_by": "Hwa Seob Choi",
+    "paper": "https://doi.org/10.1039/C5NR05696A"
+  },
+  "10.1039/C3RA42117A": {
+    "file": "assets/publications/Two-step-synthesis-of_RSCAdv_2013.png",
+    "source": "C:\\Users\\caspe\\Downloads\\Two-step synthesis.png",
+    "provided_by": "Hwa Seob Choi",
+    "paper": "https://doi.org/10.1039/C3RA42117A"
+  },
+  "10.1039/C0JM00794C": {
+    "file": "assets/publications/Fabrication-of-size-controlled_JMC_2010.png",
+    "source": "C:\\Users\\caspe\\Downloads\\Fabrication of size-controlled.png",
+    "provided_by": "Hwa Seob Choi",
+    "paper": "https://doi.org/10.1039/C0JM00794C"
+  },
+  "10.1038/s41467-022-28314-8": {
+    "file": "assets/publications/Tailoring-the-coercive_NatComm_2022.png",
+    "source": "C:\\Users\\caspe\\Downloads\\Tailoring coercive field.png",
+    "provided_by": "Hwa Seob Choi",
+    "paper": "https://doi.org/10.1038/s41467-022-28314-8"
+  },
+  "10.1021/jacs.0c00553": {
+    "file": "assets/publications/Rapid-scalable-construction_JACS_2020.png",
+    "source": "C:/Users/caspe/Downloads/Rapid, Scalable Construction.png",
+    "provided_by": "Hwa Seob Choi",
+    "paper": "https://doi.org/10.1021/jacs.0c00553"
+  }
+}
